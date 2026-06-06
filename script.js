@@ -39,6 +39,39 @@ document.getElementById("timer").innerHTML=
 `${days} Days ${hours}h ${minutes}m ${seconds}s`;
 
 },1000);
+function toggleMusic(){
+const music=document.getElementById("bgMusic");
+
+if(music.paused){
+music.play();
+}else{
+music.pause();
+}
+}
+
+function createHeart(){
+
+const heart=document.createElement("div");
+
+heart.classList.add("heart");
+
+heart.innerHTML="✨";
+
+heart.style.left=Math.random()*100+"%";
+
+heart.style.animationDuration=
+(Math.random()*5+5)+"s";
+
+document.querySelector(".hearts")
+.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},10000);
+
+}
+
+setInterval(createHeart,500);
 
 const params = new URLSearchParams(window.location.search);
 

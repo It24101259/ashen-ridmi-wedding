@@ -1,121 +1,122 @@
-function enterSite(){
+document.addEventListener("DOMContentLoaded", function () {
 
-const welcome =
-document.getElementById("welcome");
+    /* =========================
+       🎞️ PHOTO SLIDER FIX
+    ========================= */
+    let index = 0;
+    const slides = document.querySelectorAll(".slide");
 
-const main =
-document.getElementById("main");
+    function showSlides() {
+        if (slides.length === 0) return;
 
-welcome.style.opacity="0";
+        slides.forEach(s => s.style.display = "none");
 
-setTimeout(()=>{
+        index++;
+        if (index > slides.length) index = 1;
 
-welcome.style.display="none";
+        slides[index - 1].style.display = "block";
+    }
 
-main.style.display="block";
+    showSlides();
+    setInterval(showSlides, 3000);
 
-main.style.animation=
-"royalOpen 1.5s ease";
 
-},800);
+    /* =========================
+       ⏳ COUNTDOWN TIMER
+    ========================= */
+    const eventDate = new Date("July 26, 2028 09:30:00").getTime();
+    const countdownEl = document.getElementById("countdown");
 
-}
-const targetDate =
-new Date("July 26, 2028 09:30:00").getTime();
+    function updateCountdown() {
+        let now = new Date().getTime();
+        let distance = eventDate - now;
 
-setInterval(()=>{
+        if (distance < 0) {
+            countdownEl.innerHTML = "💍 Happening Now!";
+            return;
+        }
 
-const now=new Date().getTime();
+        let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-const distance=targetDate-now;
+        countdownEl.innerHTML =
+            days + " Days " +
+            hours + " Hours " +
+            minutes + " Min " +
+            seconds + " Sec";
+    }
 
-const days=Math.floor(distance/(1000*60*60*24));
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
 
-const hours=Math.floor(
-(distance%(1000*60*60*24))
-/
-(1000*60*60)
-);
 
-const minutes=Math.floor(
-(distance%(1000*60*60))
-/
-(1000*60)
-);
+    /* =========================
+       💌 GUEST NAME SYSTEM
+    ========================= */
+    const params = new URLSearchParams(window.location.search);
+    const guest = params.get("guest");
 
-const seconds=Math.floor(
-(distance%(1000*60))
-/
-1000
-);
+    const guestEl = document.getElementById("guest");
+    if (guest && guestEl) {
+        guestEl.innerText = "Welcome " + guest + " 👑";
+        showPopup("Welcome " + guest + " 💌");
+    }
 
-document.getElementById("timer").innerHTML=
-`${days} Days ${hours}h ${minutes}m ${seconds}s`;
 
-},1000);
-function toggleMusic(){
-const music=document.getElementById("bgMusic");
+    /* =========================
+       🔔 POPUP MESSAGE
+    ========================= */
+    function showPopup(text) {
+        let popup = document.getElementById("popup");
+        if (!popup) return;
 
-if(music.paused){
-music.play();
-}else{
-music.pause();
-}
-}
+        popup.innerText = text;
+        popup.style.display = "block";
 
-function createHeart(){
+        setTimeout(() => {
+            popup.style.display = "none";
+        }, 3000);
+    }
 
-const heart=document.createElement("div");
 
-heart.classList.add("heart");
+    /* =========================
+       🎵 MUSIC AUTO PLAY FIX
+    ========================= */
+    const music = document.getElementById("music");
 
-heart.innerHTML="✨";
+    function playMusic() {
+        if (music) {
+            music.play().catch(() => {
+                console.log("Autoplay blocked - user interaction needed");
+            });
+        }
+    }
 
-heart.style.left=Math.random()*100+"%";
+    // first click anywhere enables music (mobile safe)
+    document.body.addEventListener("click", playMusic, { once: true });
 
-heart.style.animationDuration=
-(Math.random()*5+5)+"s";
 
-document.querySelector(".hearts")
-.appendChild(heart);
+    /* =========================
+       🎆 CONFETTI EFFECT
+    ========================= */
+    for (let i = 0; i < 60; i++) {
+        let c = document.createElement("div");
+        c.classList.add("confetti");
 
-setTimeout(()=>{
-heart.remove();
-},10000);
+        c.style.left = Math.random() * 100 + "vw";
+        c.style.animationDuration = (2 + Math.random() * 3) + "s";
+        c.style.background = Math.random() > 0.5 ? "gold" : "white";
+        c.style.opacity = Math.random();
 
-}
+        document.body.appendChild(c);
+    }
 
-setInterval(createHeart,500);
 
-const params = new URLSearchParams(window.location.search);
+    /* =========================
+       🔗 AUTO SHARE LINK (optional)
+    ========================= */
+    console.log("Wedding site loaded successfully 👑");
 
-const guest = params.get("guest");
-
-if(guest){
-
-document.getElementById("guestName").innerHTML =
-"Welcome, <b>" + guest + "</b> ❤️";
-
-}
-const photos = [
-"photo1.jpg",
-"photo2.jpg",
-"photo3.jpg",
-"photo4.jpg",
-"photo5.jpg"
-];
-
-let currentPhoto = 0;
-
-setInterval(() => {
-
-currentPhoto++;
-
-if(currentPhoto >= photos.length){
-currentPhoto = 0;
-}
-
-document.getElementById("slider").src =
-photos[currentPhoto];
-
-}, 3000);
+});

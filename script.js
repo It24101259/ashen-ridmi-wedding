@@ -1,11 +1,25 @@
-function enterInvitation(){
+function enterSite(){
 
-document.getElementById("welcome").style.display="none";
+const welcome =
+document.getElementById("welcome");
 
-document.getElementById("main").style.display="block";
+const main =
+document.getElementById("main");
+
+welcome.style.opacity="0";
+
+setTimeout(()=>{
+
+welcome.style.display="none";
+
+main.style.display="block";
+
+main.style.animation=
+"royalOpen 1.5s ease";
+
+},800);
 
 }
-
 const targetDate =
 new Date("July 26, 2028 09:30:00").getTime();
 
@@ -83,3 +97,25 @@ document.getElementById("guestName").innerHTML =
 "Welcome, <b>" + guest + "</b> ❤️";
 
 }
+const photos = [
+"photo1.jpg",
+"photo2.jpg",
+"photo3.jpg",
+"photo4.jpg",
+"photo5.jpg"
+];
+
+let currentPhoto = 0;
+
+setInterval(() => {
+
+currentPhoto++;
+
+if(currentPhoto >= photos.length){
+currentPhoto = 0;
+}
+
+document.getElementById("slider").src =
+photos[currentPhoto];
+
+}, 3000);

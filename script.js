@@ -39,3 +39,14 @@ document.getElementById("timer").innerHTML=
 `${days} Days ${hours}h ${minutes}m ${seconds}s`;
 
 },1000);
+
+const params = new URLSearchParams(window.location.search);
+
+const guest = params.get("guest");
+
+if(guest){
+
+document.getElementById("guestName").innerHTML =
+"Welcome, <b>" + guest + "</b> ❤️";
+
+}

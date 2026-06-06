@@ -3,406 +3,233 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ashen ❤️ Ridmi Wedding</title>
 
-<title>Ashen & Ridmi Wedding</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
-
-riting{variant=“document” id=“58241”}
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Georgia,serif;
-scroll-behavior:smooth;
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: black;
+    color: gold;
+    text-align: center;
+    overflow-x: hidden;
 }
 
-body{
-background:#050505;
-color:#fff;
-overflow-x:hidden;
+/* Royal glow */
+body::before {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,215,0,0.18), transparent 60%);
+    z-index: -1;
 }
 
-.welcome{
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-background:linear-gradient(135deg,#000,#1a1a1a,#000);
-color:#d4af37;
-padding:20px;
+/* Loader */
+#loader {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    animation: fadeOut 3s forwards;
+    animation-delay: 2.5s;
 }
 
-.box{
-background:rgba(255,255,255,.05);
-backdrop-filter:blur(20px);
-padding:45px;
-border-radius:25px;
-border:1px solid rgba(212,175,55,.3);
-box-shadow:0 0 30px rgba(212,175,55,.15);
+#loader h1 {
+    font-family: 'Great Vibes';
+    font-size: 45px;
 }
 
-.box h1{
-font-size:58px;
-color:#d4af37;
+@keyframes fadeOut {
+    to { opacity: 0; visibility: hidden; }
 }
 
-.box button{
-padding:15px 35px;
-border:none;
-border-radius:40px;
-background:#d4af37;
-color:#000;
-font-weight:bold;
-font-size:18px;
-margin-top:20px;
+/* Main */
+.container {
+    padding: 20px;
+    animation: fadeIn 2s ease-in;
 }
 
-.main{
-display:none;
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
 }
 
-.hero{
-text-align:center;
-padding:80px 20px;
-background:linear-gradient(to bottom,#050505,#111);
+/* Countdown */
+#countdown {
+    font-size: 20px;
+    margin: 15px 0;
 }
 
-.hero h1{
-font-size:60px;
-color:#d4af37;
-margin-bottom:15px;
+/* Slider */
+.slider {
+    width: 90%;
+    max-width: 350px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 15px;
+    border: 2px solid gold;
 }
 
-.hero p{
-color:#ccc;
-font-size:18px;
+.slides {
+    display: flex;
+    width: 500%;
+    animation: slide 15s infinite;
 }
 
-.card{
-position:relative;
-background:rgba(255,255,255,.04);
-margin:25px;
-padding:30px;
-border-radius:25px;
-text-align:center;
-border:1px solid rgba(212,175,55,.25);
-backdrop-filter:blur(15px);
+.slides img {
+    width: 100%;
 }
 
-.card h2{
-color:#d4af37;
-margin-bottom:15px;
+@keyframes slide {
+    0% {transform: translateX(0);}
+    20% {transform: translateX(0);}
+    25% {transform: translateX(-100%);}
+    45% {transform: translateX(-100%);}
+    50% {transform: translateX(-200%);}
+    70% {transform: translateX(-200%);}
+    75% {transform: translateX(-300%);}
+    95% {transform: translateX(-300%);}
+    100% {transform: translateX(-400%);}
 }
 
-.card::before{
-content:””;
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:2px;
-background:#d4af37;
+/* Buttons */
+button, a {
+    background: gold;
+    color: black;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 25px;
+    margin: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
 }
 
-.gallery{
-text-align:center;
-padding:30px 15px;
+/* Confetti */
+.confetti {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background: gold;
+    top: -10px;
+    animation: fall linear infinite;
 }
 
-.gallery h2{
-color:#d4af37 !important;
-margin-bottom:20px;
+@keyframes fall {
+    to {transform: translateY(100vh) rotate(360deg);}
 }
 
-.gallery img{
-width:90%;
-max-width:550px;
-margin:18px;
-border-radius:20px;
-border:2px solid #d4af37;
-box-shadow:0 0 20px rgba(212,175,55,.2);
+/* Popup */
+.popup {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: gold;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    display: none;
 }
-
-#timer{
-font-size:30px;
-font-weight:bold;
-color:#d4af37;
-}
-
-.btn{
-display:inline-block;
-padding:15px 30px;
-background:#d4af37;
-color:#000;
-text-decoration:none;
-border-radius:40px;
-font-weight:bold;
-margin-top:15px;
-}
-
-.music{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#d4af37;
-color:#000;
-border:none;
-padding:15px;
-border-radius:50px;
-z-index:999;
-font-weight:bold;
-}
-
-.hearts{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-pointer-events:none;
-overflow:hidden;
-}
-
-.heart{
-position:absolute;
-font-size:22px;
-animation:fall linear infinite;
-}
-
-@keyframes fall{
-0%{transform:translateY(-100px);}
-
 </style>
 </head>
+
 <body>
 
-<div class="welcome" id="welcome">
-<div class="box">
-
-<h2>💍 We're Getting Married</h2>
-
-<h1>
-Ashen
-<br>
-&
-<br>
-Ridmi
-</h1>
-
-<p>26 July 2028 • 9:30 AM</p>
-
-<button onclick="enterSite()">
-✨ Open Invitation ✨
-</button>
-
-</div>
+<div id="loader">
+    <h1>Ashen ❤️ Ridmi</h1>
+    <p>Royal Wedding Invitation</p>
 </div>
 
-<div class="main" id="main">
+<div class="popup" id="popup"></div>
 
-<section class="hero">
+<div class="container">
 
-<h2>👑 Ashen & Ridmi 👑</h2>
+    <h1 id="guest">Dear Guest 👑</h1>
 
-<p id="guestName"></p>
+    <h2>Ashen ❤️ Ridmi</h2>
+    <p>We Invite You To Our Royal Wedding</p>
 
-<p>
-Together with our families,
-we invite you to celebrate our wedding.
-</p>
+    <h3>26 July 2028 | 9:30 AM</h3>
+    <p>Golden Crown, Kandy</p>
 
-</section>
+    <div id="countdown"></div>
 
-<div class="card">
+    <!-- Slider -->
+    <div class="slider">
+        <div class="slides">
+            <img src="photo1.jpg">
+            <img src="photo2.jpg">
+            <img src="photo3.jpg">
+            <img src="photo4.jpg">
+            <img src="photo5.jpg">
+        </div>
+    </div>
 
-<h2>⏳ Countdown</h2>
+    <br>
 
-<div id="timer"></div>
+    <a href="https://maps.app.goo.gl/4TyAPM71U2rcCSCC7" target="_blank">📍 Location</a>
+    <a href="https://forms.gle/9AsxELdHc9a82fHp7" target="_blank">💌 RSVP</a>
 
+    <button onclick="playMusic()">🎵 Music</button>
+
+    <audio id="music" src="music.mp3"></audio>
 </div>
-
-<div class="card">
-
-<h2>📅 Wedding Details</h2>
-
-<p>26 July 2028</p>
-<p>9:30 AM</p>
-<p>Golden Crown, Kandy</p>
-
-<a class="btn"
-href="https://maps.app.goo.gl/4TyAPM71U2rcCSCC7?g_st=ic"
-target="_blank">
-Open Location
-</a>
-
-</div>
-
-<div class="gallery">
-
-<h2 style="color:#d4af37">
-📸 Our Memories
-</h2>
-
-<img id="slider" src="photo1.jpg">
-<img id="slider" src="photo2.jpg">
-    <img id="slider" src="photo3.jpg">
-        <img id="slider" src="photo4.jpg">
-    <img id="slider" src="photo5.jpg">
-</div>
-
-<div class="card">
-
-<h2>❤️ Our Story</h2>
-
-<div class="card">
-
-<h2>💌 RSVP</h2>
-
-<p>
-Please confirm your attendance for our special day.
-</p>
-
-<a class="btn"
-href="https://forms.gle/9AsxELdHc9a82fHp7"
-target="_blank">
-RSVP Now
-</a>
-
-</div>
-
-
-
-<div class="card">
-
-<h2>📞 Contact</h2>
-
-<a class="btn"
-href="tel:0752090066">
-Call Us
-</a>
-
-<br><br>
-
-<a class="btn"
-href="https://wa.me/94752090066">
-WhatsApp
-</a>
-
-</div>
-
-</div>
-
-<button class="music" onclick="toggleMusic()">
-🎵
-</button>
-
-<audio id="music" loop>
-<source src="music.mp3" type="audio/mpeg">
-</audio>
-
-<div class="hearts"></div>
 
 <script>
 
-function enterSite(){
+// Guest name from URL
+const params = new URLSearchParams(window.location.search);
+const guest = params.get("guest");
 
-document.getElementById("welcome").style.display="none";
-
-document.getElementById("main").style.display="block";
-
+if(guest){
+    document.getElementById("guest").innerText = "Welcome " + guest + " 👑";
+    showPopup("Welcome " + guest + " 💌");
 }
 
-const targetDate=
-new Date("July 26, 2028 09:30:00").getTime();
+// Popup
+function showPopup(text){
+    let p = document.getElementById("popup");
+    p.innerText = text;
+    p.style.display = "block";
+    setTimeout(()=>p.style.display="none",3000);
+}
+
+// Countdown
+const eventDate = new Date("July 26, 2028 09:30:00").getTime();
 
 setInterval(()=>{
+    let now = new Date().getTime();
+    let d = eventDate - now;
 
-const now=new Date().getTime();
-
-const distance=targetDate-now;
-
-const days=Math.floor(
-distance/(1000*60*60*24)
-);
-
-const hours=Math.floor(
-(distance%(1000*60*60*24))
-/
-(1000*60*60)
-);
-
-const minutes=Math.floor(
-(distance%(1000*60*60))
-/
-(1000*60)
-);
-
-const seconds=Math.floor(
-(distance%(1000*60))
-/
-1000
-);
-
-document.getElementById("timer")
-.innerHTML=
-
-days+" Days "
-+
-hours+" Hrs "
-+
-minutes+" Min "
-+
-seconds+" Sec";
-
+    document.getElementById("countdown").innerHTML =
+    Math.floor(d/(1000*60*60*24)) + " Days " +
+    Math.floor((d%(1000*60*60*24))/(1000*60*60)) + " Hours " +
+    Math.floor((d%(1000*60*60))/(1000*60)) + " Min";
 },1000);
 
-function toggleMusic(){
-
-const music=
-document.getElementById("music");
-
-if(music.paused){
-
-music.play();
-
-}else{
-
-music.pause();
-
+// Music
+function playMusic(){
+    document.getElementById("music").play();
 }
 
+// Confetti
+for(let i=0;i<50;i++){
+    let c = document.createElement("div");
+    c.classList.add("confetti");
+    c.style.left = Math.random()*100+"vw";
+    c.style.animationDuration = (2+Math.random()*3)+"s";
+    c.style.background = Math.random()>0.5?"gold":"white";
+    document.body.appendChild(c);
 }
-
-function createHeart(){
-
-const heart=
-document.createElement("div");
-
-heart.classList.add("heart");
-
-heart.innerHTML="💖";
-
-heart.style.left=
-Math.random()*100+"%";
-
-heart.style.animationDuration=
-(Math.random()*5+5)+"s";
-
-document
-.querySelector(".hearts")
-.appendChild(heart);
-
-setTimeout(()=>{
-
-heart.remove();
-
-},10000);
-
-}
-
-setInterval(createHeart,500);
 
 </script>
 

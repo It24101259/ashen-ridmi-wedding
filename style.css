@@ -1,112 +1,121 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Segoe UI;
+function enterSite(){
+
+const welcome =
+document.getElementById("welcome");
+
+const main =
+document.getElementById("main");
+
+welcome.style.opacity="0";
+
+setTimeout(()=>{
+
+welcome.style.display="none";
+
+main.style.display="block";
+
+main.style.animation=
+"royalOpen 1.5s ease";
+
+},800);
+
+}
+const targetDate =
+new Date("July 26, 2028 09:30:00").getTime();
+
+setInterval(()=>{
+
+const now=new Date().getTime();
+
+const distance=targetDate-now;
+
+const days=Math.floor(distance/(1000*60*60*24));
+
+const hours=Math.floor(
+(distance%(1000*60*60*24))
+/
+(1000*60*60)
+);
+
+const minutes=Math.floor(
+(distance%(1000*60*60))
+/
+(1000*60)
+);
+
+const seconds=Math.floor(
+(distance%(1000*60))
+/
+1000
+);
+
+document.getElementById("timer").innerHTML=
+`${days} Days ${hours}h ${minutes}m ${seconds}s`;
+
+},1000);
+function toggleMusic(){
+const music=document.getElementById("bgMusic");
+
+if(music.paused){
+music.play();
+}else{
+music.pause();
+}
 }
 
-body{
-background:#fff5f8;
-overflow-x:hidden;
+function createHeart(){
+
+const heart=document.createElement("div");
+
+heart.classList.add("heart");
+
+heart.innerHTML="✨";
+
+heart.style.left=Math.random()*100+"%";
+
+heart.style.animationDuration=
+(Math.random()*5+5)+"s";
+
+document.querySelector(".hearts")
+.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},10000);
+
 }
 
-.welcome-screen{
-height:100vh;
-background:linear-gradient(135deg,#ff9ecf,#ffffff);
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
+setInterval(createHeart,500);
+
+const params = new URLSearchParams(window.location.search);
+
+const guest = params.get("guest");
+
+if(guest){
+
+document.getElementById("guestName").innerHTML =
+"Welcome, <b>" + guest + "</b> ❤️";
+
+}
+const photos = [
+"photo1.jpg",
+"photo2.jpg",
+"photo3.jpg",
+"photo4.jpg",
+"photo5.jpg"
+];
+
+let currentPhoto = 0;
+
+setInterval(() => {
+
+currentPhoto++;
+
+if(currentPhoto >= photos.length){
+currentPhoto = 0;
 }
 
-.overlay h1{
-font-size:55px;
-color:#ff4fa0;
-}
+document.getElementById("slider").src =
+photos[currentPhoto];
 
-.overlay h2{
-color:#fff;
-margin-bottom:15px;
-}
-
-.overlay p{
-margin:15px;
-font-size:18px;
-}
-
-.overlay button{
-padding:15px 40px;
-border:none;
-border-radius:40px;
-background:#ff4fa0;
-color:white;
-font-size:18px;
-cursor:pointer;
-}
-
-.main-content{
-display:none;
-padding:30px;
-}
-
-.hero{
-text-align:center;
-padding:50px 20px;
-}
-
-.hero h1{
-font-size:50px;
-color:#ff4fa0;
-}
-
-.countdown{
-text-align:center;
-padding:40px;
-}
-
-#timer{
-font-size:30px;
-font-weight:bold;
-color:#ff4fa0;
-}
-
-.details{
-text-align:center;
-padding:40px;
-}
-
-.details a{
-display:inline-block;
-margin-top:20px;
-padding:12px 25px;
-background:#ff4fa0;
-color:white;
-text-decoration:none;
-border-radius:30px;
-}
-
-.gallery{
-text-align:center;
-padding:50px 20px;
-}
-
-.gallery img{
-width:90%;
-max-width:500px;
-margin:15px;
-border-radius:20px;
-box-shadow:0 0 20px rgba(0,0,0,.15);
-}
-
-.contact{
-text-align:center;
-padding:50px;
-}
-
-.contact a{
-padding:15px 30px;
-background:#ff4fa0;
-color:white;
-text-decoration:none;
-border-radius:30px;
-}
+}, 3000);

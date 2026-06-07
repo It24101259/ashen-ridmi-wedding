@@ -166,21 +166,115 @@ button:hover, a:hover {
 }
 #welcomeScreen{
 position:fixed;
+top:0;
+left:0;
 width:100%;
 height:100%;
-background:
-radial-gradient(circle at center,
-#1a1a1a 0%,
-#000 70%);
+background:#000;
 display:flex;
 justify-content:center;
 align-items:center;
-flex-direction:column;
 z-index:9999;
 cursor:pointer;
-overflow:hidden;
 }
 
+.welcomeContent{
+position:relative;
+width:90%;
+max-width:380px;
+padding:45px 25px;
+text-align:center;
+
+background:linear-gradient(
+145deg,
+rgba(25,25,25,.95),
+rgba(5,5,5,.95)
+);
+
+border:2px solid #d4af37;
+border-radius:30px;
+
+box-shadow:
+0 0 20px rgba(212,175,55,.5),
+0 0 50px rgba(212,175,55,.25);
+}
+
+.welcomeContent::before{
+content:"";
+position:absolute;
+top:10px;
+left:10px;
+right:10px;
+bottom:10px;
+border:1px solid rgba(212,175,55,.4);
+border-radius:20px;
+}
+
+.corner{
+position:absolute;
+font-size:26px;
+color:#d4af37;
+}
+
+.tl{
+top:15px;
+left:15px;
+}
+
+.tr{
+top:15px;
+right:15px;
+}
+
+.crown{
+font-size:40px;
+margin-bottom:15px;
+}
+
+.title{
+letter-spacing:4px;
+font-size:13px;
+color:#d4af37;
+margin-bottom:10px;
+}
+
+.welcomeContent h1{
+font-size:52px;
+color:#FFD700;
+text-shadow:
+0 0 10px #FFD700,
+0 0 20px #FFD700;
+margin-bottom:15px;
+}
+
+.date{
+color:#fff;
+font-size:16px;
+margin-bottom:10px;
+}
+
+.venue{
+color:#d4af37;
+margin-bottom:25px;
+}
+
+.enterBtn{
+display:inline-block;
+padding:14px 30px;
+
+background:linear-gradient(
+45deg,
+#FFD700,
+#B8860B
+);
+
+color:#000;
+font-weight:bold;
+border-radius:40px;
+
+box-shadow:
+0 0 20px rgba(255,215,0,.4);
+}
 .welcomeContent {
     text-align: center;
     animation: floatText 3s ease-in-out infinite;

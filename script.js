@@ -120,3 +120,18 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("Wedding site loaded successfully 👑");
 
 });
+function enterSite(){
+    const screen = document.getElementById("welcomeScreen");
+    screen.classList.add("fadeOut");
+
+    setTimeout(()=>{
+        screen.style.display = "none";
+    }, 1000);
+}
+const params = new URLSearchParams(window.location.search);
+const guest = params.get("guest");
+
+if(guest){
+document.getElementById("guest").innerHTML =
+"Welcome, " + guest + " ❤️";
+}

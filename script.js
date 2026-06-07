@@ -125,34 +125,19 @@ function enterSite(){
 const welcome =
 document.getElementById("welcomeScreen");
 
-welcome.style.transition="all 1.5s ease";
-welcome.style.transform="scale(1.3)";
-welcome.style.opacity="0";
+welcome.style.transition =
+"all 1.2s ease";
+
+welcome.style.opacity = "0";
+welcome.style.transform =
+"scale(1.2)";
 
 setTimeout(()=>{
 
 welcome.style.display="none";
 
-document.getElementById("main").style.display="block";
-
-document.getElementById("main").animate([
-
-{
-opacity:0,
-transform:"translateY(100px)"
-},
-
-{
-opacity:1,
-transform:"translateY(0)"
-}
-
-],{
-
-duration:1500,
-fill:"forwards"
-
-});
+document.getElementById("main")
+.style.display="block";
 
 },1200);
 

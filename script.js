@@ -121,17 +121,39 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 function enterSite(){
-    const screen = document.getElementById("welcomeScreen");
-    screen.classList.add("fadeOut");
 
-    setTimeout(()=>{
-        screen.style.display = "none";
-    }, 1000);
+const welcome =
+document.getElementById("welcomeScreen");
+
+welcome.style.transition="all 1.5s ease";
+welcome.style.transform="scale(1.3)";
+welcome.style.opacity="0";
+
+setTimeout(()=>{
+
+welcome.style.display="none";
+
+document.getElementById("main").style.display="block";
+
+document.getElementById("main").animate([
+
+{
+opacity:0,
+transform:"translateY(100px)"
+},
+
+{
+opacity:1,
+transform:"translateY(0)"
 }
-const params = new URLSearchParams(window.location.search);
-const guest = params.get("guest");
 
-if(guest){
-document.getElementById("guest").innerHTML =
-"Welcome, " + guest + " ❤️";
+],{
+
+duration:1500,
+fill:"forwards"
+
+});
+
+},1200);
+
 }

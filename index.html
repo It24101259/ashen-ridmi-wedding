@@ -235,6 +235,8 @@ href="https://forms.gle/9AsxELdHc9a82fHp7">
 
 <script>
 
+<script>
+
 /* ================= ENTER SITE ================= */
 function enterSite(){
     document.getElementById("welcomeScreen").classList.add("fadeOut");
@@ -260,23 +262,34 @@ setInterval(()=>{
 },1000);
 
 /* ================= SLIDER ================= */
-const images = ["photo1.jpg","photo2.jpg","photo3.jpg","photo4.jpg","photo5.jpg"];
+const images = [
+"photo1.jpg",
+"photo2.jpg",
+"photo3.jpg",
+"photo4.jpg",
+"photo5.jpg"
+];
+
 let i = 0;
 
 setInterval(()=>{
     i++;
-    if(i >= images.length) i = 0;
+
+    if(i >= images.length){
+        i = 0;
+    }
+
     document.getElementById("slide").src = images[i];
+
 },3000);
 
-/* ================= WHATSAPP ================= */
-let msg = encodeURIComponent("You are invited to Ashen ❤️ Ridmi Wedding 👑 - 26 July 2028 9:30 AM");
+/* ================= GUEST NAME ================= */
 const params = new URLSearchParams(window.location.search);
 const guest = params.get("guest");
 
 if(guest){
-document.getElementById("guest").innerHTML =
-"Welcome, " + guest + " ❤️";
+    document.getElementById("guest").innerHTML =
+    "Welcome, " + guest + " ❤️";
 }
 
 </script>

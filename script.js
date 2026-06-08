@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+slidocument.addEventListener("DOMContentLoaded", function () {
 
     /* =========================
        🎞️ PHOTO SLIDER FIX
@@ -175,3 +175,35 @@ star.remove();
 },20);
 
 },800);
+const images = [
+"photo1.jpg",
+"photo2.jpg",
+"photo3.jpg",
+"photo4.jpg",
+"photo5.jpg"
+];
+
+let i = 0;
+
+setInterval(()=>{
+
+const img =
+document.getElementById("slide");
+
+img.style.opacity="0";
+
+setTimeout(()=>{
+
+i++;
+
+if(i>=images.length){
+i=0;
+}
+
+img.src=images[i];
+
+img.style.opacity="1";
+
+},500);
+
+},3500);

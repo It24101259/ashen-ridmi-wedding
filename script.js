@@ -142,3 +142,36 @@ document.getElementById("main")
 },1200);
 
 }
+setInterval(()=>{
+
+const star=document.createElement("div");
+
+star.innerHTML="✨";
+
+star.style.position="fixed";
+star.style.left=Math.random()*100+"vw";
+star.style.top="-20px";
+star.style.fontSize="20px";
+star.style.pointerEvents="none";
+star.style.zIndex="1";
+
+document.body.appendChild(star);
+
+let pos=-20;
+
+const fall=setInterval(()=>{
+
+pos+=2;
+
+star.style.top=pos+"px";
+
+if(pos>window.innerHeight){
+
+clearInterval(fall);
+star.remove();
+
+}
+
+},20);
+
+},800);

@@ -67,11 +67,28 @@ h2 {
     font-size: 28px;
 }
 
-/* Countdown */
-#countdown {
-    font-size: 18px;
-    margin: 15px 0;
-    color: white;
+#countdown{
+    width:85%;
+    max-width:350px;
+
+    margin:20px auto;
+
+    padding:20px;
+
+    border:2px solid gold;
+
+    border-radius:20px;
+
+    background:rgba(255,215,0,.08);
+
+    color:white;
+
+    font-size:24px;
+
+    font-weight:bold;
+
+    box-shadow:
+    0 0 15px rgba(255,215,0,.2);
 }
 
 /* 💎 FIXED SLIDER */

@@ -405,3 +405,32 @@ box-shadow:
 transform:scale(1.08);
 }
 }
+.contact-box{
+text-align:center;
+margin-top:60px;
+}
+
+.contact-box h2{
+color:#FFD700;
+font-size:45px;
+margin-bottom:25px;
+}
+
+.contact-btn{
+display:block;
+width:80%;
+max-width:320px;
+
+margin:15px auto;
+
+padding:18px;
+
+background:#FFD700;
+color:#000;
+
+font-weight:bold;
+font-size:22px;
+
+text-decoration:none;
+border-radius:50px;
+}

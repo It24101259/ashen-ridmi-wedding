@@ -271,6 +271,15 @@ setInterval(()=>{
 
 /* ================= WHATSAPP ================= */
 let msg = encodeURIComponent("You are invited to Ashen ❤️ Ridmi Wedding 👑 - 26 July 2028 9:30 AM");
-document.getElementById("wa").href = "https://wa.me/?text=" + msg;
+const params = new URLSearchParams(window.location.search);
+const guest = params.get("guest");
+
+if(guest){
+document.getElementById("guest").innerHTML =
+"Welcome, " + guest + " ❤️";
+}
+
+</script>
+
 </body>
 </html>

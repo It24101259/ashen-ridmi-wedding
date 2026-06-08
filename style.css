@@ -434,3 +434,27 @@ font-size:22px;
 text-decoration:none;
 border-radius:50px;
 }
+.contact-box{
+text-align:center;
+margin-top:60px;
+}
+
+.contact-box h2{
+color:#FFD700;
+font-size:32px;
+margin-bottom:20px;
+}
+
+.contact-btn{
+display:block;
+width:80%;
+max-width:320px;
+margin:12px auto;
+padding:16px;
+background:#FFD700;
+color:#000;
+font-weight:bold;
+font-size:20px;
+text-decoration:none;
+border-radius:50px;
+}

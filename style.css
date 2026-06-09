@@ -615,3 +615,13 @@ max-width:90%;
 max-height:90%;
 border-radius:20px;
 }
+#guest{
+    color:gold;
+    font-size:24px;
+    font-weight:bold;
+    margin:20px 0;
+
+    text-shadow:
+    0 0 10px gold,
+    0 0 20px gold;
+}

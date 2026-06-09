@@ -257,3 +257,23 @@ popup.style.display="none";
 },3000);
 
 }
+function enterSite(){
+
+const welcome =
+document.getElementById("welcomeScreen");
+
+welcome.classList.add("openEnvelope");
+
+setTimeout(()=>{
+
+welcome.style.display="none";
+document.getElementById("main").style.display="block";
+
+document.getElementById("music").play();
+
+showFireworks();
+showGuestPopup();
+
+},1500);
+
+}

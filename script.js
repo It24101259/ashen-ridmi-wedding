@@ -292,3 +292,24 @@ card.classList.add("show");
 });
 
 });
+function showGuestPopup(){
+
+const guest =
+new URLSearchParams(window.location.search)
+.get("guest");
+
+const popup =
+document.getElementById("guestPopup");
+
+popup.innerHTML =
+guest
+? "Welcome " + guest + " ❤️"
+: "Welcome To Our Wedding ❤️";
+
+popup.style.display="block";
+
+setTimeout(()=>{
+popup.style.display="none";
+},3000);
+
+}

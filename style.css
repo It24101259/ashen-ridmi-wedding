@@ -563,3 +563,17 @@ animation:ringFloat 3s ease-in-out infinite;
 0%,100%{transform:translateY(0);}
 50%{transform:translateY(-15px);}
 }
+.royal-card{
+width:90%;
+max-width:400px;
+margin:30px auto;
+padding:25px;
+
+border:2px solid gold;
+border-radius:25px;
+
+background:rgba(255,215,0,.05);
+
+box-shadow:
+0 0 20px rgba(255,215,0,.15);
+}

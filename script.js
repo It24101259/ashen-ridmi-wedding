@@ -346,3 +346,14 @@ petal.remove();
 },20);
 
 },1200);
+document
+.getElementById("slide")
+.onclick=function(){
+
+document.getElementById("imgPopup")
+.style.display="flex";
+
+document.getElementById("popupImg")
+.src=this.src;
+
+}

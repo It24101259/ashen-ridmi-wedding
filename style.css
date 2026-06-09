@@ -195,7 +195,27 @@ linear-gradient(135deg,#111,#000);
 overflow:hidden;
 z-index:9999;
 }
+#welcomeScreen{
+transition:1.5s;
+}
 
+.openEnvelope{
+animation:openEnvelope 1.5s forwards;
+}
+
+@keyframes openEnvelope{
+0%{
+transform:scale(1);
+opacity:1;
+}
+50%{
+transform:scale(1.1);
+}
+100%{
+transform:scale(2);
+opacity:0;
+}
+}
 .welcomeContent{
 position:relative;
 width:90%;

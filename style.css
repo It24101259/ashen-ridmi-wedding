@@ -541,3 +541,13 @@ display:none;
 
 z-index:99999;
 }
+.card{
+opacity:0;
+transform:translateY(50px);
+transition:1s;
+}
+
+.card.show{
+opacity:1;
+transform:translateY(0);
+}

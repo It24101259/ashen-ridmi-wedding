@@ -125,12 +125,21 @@ function enterSite(){
 const welcome =
 document.getElementById("welcomeScreen");
 
-welcome.style.transition =
-"all 1.2s ease";
+welcome.classList.add("openEnvelope");
 
-welcome.style.opacity = "0";
-welcome.style.transform =
-"scale(1.2)";
+setTimeout(()=>{
+
+welcome.style.display="none";
+
+document.getElementById("main").style.display="block";
+
+showFireworks();
+
+showGuestPopup();
+
+},1500);
+
+}
 
 setTimeout(()=>{
 

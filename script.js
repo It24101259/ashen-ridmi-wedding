@@ -243,3 +243,17 @@ fw.remove();
 }
 
 }
+function showGuestPopup(){
+
+const popup=
+document.getElementById("guestPopup");
+
+popup.style.display="block";
+
+setTimeout(()=>{
+
+popup.style.display="none";
+
+},3000);
+
+}

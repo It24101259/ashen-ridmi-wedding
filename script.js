@@ -313,3 +313,36 @@ popup.style.display="none";
 },3000);
 
 }
+setInterval(()=>{
+
+const petal=document.createElement("div");
+
+petal.innerHTML="🌹";
+
+petal.style.position="fixed";
+petal.style.left=Math.random()*100+"vw";
+petal.style.top="-50px";
+petal.style.fontSize="24px";
+petal.style.zIndex="10";
+petal.style.pointerEvents="none";
+
+document.body.appendChild(petal);
+
+let pos=-50;
+
+const fall=setInterval(()=>{
+
+pos+=2;
+
+petal.style.top=pos+"px";
+
+if(pos>window.innerHeight){
+
+clearInterval(fall);
+petal.remove();
+
+}
+
+},20);
+
+},1200);

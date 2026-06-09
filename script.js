@@ -216,3 +216,30 @@ img.style.opacity="1";
 },500);
 
 },3500);
+function showFireworks(){
+
+for(let i=0;i<25;i++){
+
+setTimeout(()=>{
+
+const fw=document.createElement("div");
+
+fw.innerHTML="✨";
+
+fw.style.position="fixed";
+fw.style.left=Math.random()*100+"vw";
+fw.style.top=Math.random()*60+"vh";
+fw.style.fontSize="35px";
+fw.style.zIndex="999";
+
+document.body.appendChild(fw);
+
+setTimeout(()=>{
+fw.remove();
+},2000);
+
+},i*120);
+
+}
+
+}

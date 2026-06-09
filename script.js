@@ -56,13 +56,12 @@ slidocument.addEventListener("DOMContentLoaded", function () {
        💌 GUEST NAME SYSTEM
     ========================= */
     const params = new URLSearchParams(window.location.search);
-    const guest = params.get("guest");
+const guest = params.get("guest");
 
-    const guestEl = document.getElementById("guest");
-    if (guest && guestEl) {
-        guestEl.innerText = "Welcome " + guest + " 👑";
-        showPopup("Welcome " + guest + " 💌");
-    }
+if(guest){
+    document.getElementById("guest").innerHTML =
+    "👑 Welcome, " + guest + " ❤️";
+}
 
 
     /* =========================

@@ -121,23 +121,42 @@ if(guest){
 });
 function enterSite(){
 
-const welcome =
-document.getElementById("welcomeScreen");
+document
+.getElementById("welcomeScreen")
+.classList.add("fadeOut");
 
-welcome.classList.add("openEnvelope");
+for(let i=0;i<30;i++){
+
+let fire =
+document.createElement("div");
+
+fire.innerHTML="🎆";
+
+fire.style.position="fixed";
+fire.style.left=
+Math.random()*100+"vw";
+
+fire.style.top=
+Math.random()*100+"vh";
+
+fire.style.fontSize="30px";
+
+document.body.appendChild(fire);
 
 setTimeout(()=>{
+fire.remove();
+},2000);
+}
 
-welcome.style.display="none";
+setTimeout(()=>{
+document
+.getElementById("welcomeScreen")
+.style.display="none";
 
-document.getElementById("main").style.display="block";
-
-showFireworks();
-
-showGuestPopup();
-
-},1500);
-
+document
+.getElementById("main")
+.style.display="block";
+},1000);
 }
 
 setTimeout(()=>{
@@ -353,6 +372,59 @@ document.getElementById("imgPopup")
 .style.display="flex";
 
 document.getElementById("popupImg")
+.src=this.src;
+
+}
+window.onload = function(){
+
+const guest =
+new URLSearchParams(window.location.search)
+.get("guest");
+
+const popup =
+document.getElementById("guestPopup");
+
+popup.innerHTML =
+guest
+? "👑 Welcome " + guest + " ❤️"
+: "👑 Welcome To Our Wedding ❤️";
+
+popup.style.display="block";
+
+setTimeout(()=>{
+popup.style.display="none";
+},3000);
+
+}
+setInterval(()=>{
+
+const s =
+document.createElement("div");
+
+s.className="sparkle";
+
+s.innerHTML="✨";
+
+s.style.left =
+Math.random()*100+"vw";
+
+document.body.appendChild(s);
+
+setTimeout(()=>{
+s.remove();
+},6000);
+
+},500);
+document
+.getElementById("slide")
+.onclick = function(){
+
+document
+.getElementById("imgPopup")
+.style.display="flex";
+
+document
+.getElementById("popupImg")
 .src=this.src;
 
 }

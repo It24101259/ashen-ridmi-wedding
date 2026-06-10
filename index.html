@@ -361,3 +361,301 @@ Together With Their Families<br>
 Request The Pleasure Of Your Company<br>
 At Their Wedding Celebration
 </p>
+<div class="infoCard">
+
+<p>📅 26 July 2028</p>
+<p>⏰ 9:30 AM</p>
+<p>📍 Golden Crown, Kandy</p>
+
+<div id="countdown"></div>
+
+</div>
+
+<div class="slider">
+<img
+id="slide"
+src="photo1.jpg"
+onclick="openImage(this.src)">
+</div>
+
+<a
+class="button"
+target="_blank"
+href="https://maps.app.goo.gl/4TyAPM71U2rcCSCC7">
+📍 View Location
+</a>
+
+<a
+class="button"
+target="_blank"
+href="https://forms.gle/9AsxELdHc9a82fHp7">
+💌 RSVP Now
+</a>
+
+<br><br>
+
+<iframe
+src="https://maps.google.com/maps?q=Golden%20Crown%20Kandy&t=&z=15&ie=UTF8&iwloc=&output=embed"
+width="95%"
+height="260">
+</iframe>
+
+<br><br>
+
+<audio id="music" loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<a
+class="button"
+onclick="document.getElementById('music').play()">
+🎵 Play Music
+</a>
+
+<a
+class="button"
+onclick="document.getElementById('music').pause()">
+⏸ Pause Music
+</a>
+
+<div class="contact-box">
+
+<h2>📞 Contact Us</h2>
+
+<a
+class="contact-btn"
+href="tel:0752090066">
+📱 Call Ashen
+</a>
+
+<a
+class="contact-btn"
+href="https://wa.me/94752090066">
+💬 WhatsApp Ashen
+</a>
+
+<a
+class="contact-btn"
+href="tel:0727667219">
+📱 Call Ridmi
+</a>
+
+<a
+class="contact-btn"
+href="https://wa.me/94727667219">
+💬 WhatsApp Ridmi
+</a>
+
+</div>
+
+<div class="footer">
+
+Made With ❤️ For Our Special Day
+
+<br><br>
+
+Ashen & Ridmi • 2028
+
+</div>
+
+</div>
+
+</div>
+
+<div
+id="imgPopup"
+onclick="closeImage()">
+
+<img id="popupImg">
+
+</div>
+
+<canvas id="fireworks"></canvas>
+
+<script>
+
+function enterSite(){
+
+document.getElementById("music").play();
+
+document
+.getElementById("welcomeScreen")
+.classList
+.add("fadeOut");
+
+setTimeout(()=>{
+
+document
+.getElementById("welcomeScreen")
+.style.display="none";
+
+document
+.getElementById("main")
+.style.display="block";
+
+},1000);
+
+}
+
+const eventDate =
+new Date(
+"July 26, 2028 09:30:00"
+).getTime();
+
+setInterval(()=>{
+
+let now =
+new Date().getTime();
+
+let distance =
+eventDate-now;
+
+let days =
+Math.floor(
+distance/
+(1000*60*60*24)
+);
+
+let hours =
+Math.floor(
+(distance%
+(1000*60*60*24))
+/
+(1000*60*60)
+);
+
+let mins =
+Math.floor(
+(distance%
+(1000*60*60))
+/
+(1000*60)
+);
+
+let secs =
+Math.floor(
+(distance%
+(1000*60))
+/
+1000
+);
+
+document
+.getElementById("countdown")
+.innerHTML =
+days+" Days<br>"+
+hours+" Hours "+
+mins+" Minutes "+
+secs+" Seconds";
+
+},1000);
+
+const images=[
+"photo1.jpg",
+"photo2.jpg",
+"photo3.jpg",
+"photo4.jpg",
+"photo5.jpg"
+];
+
+let current=0;
+
+setInterval(()=>{
+
+current++;
+
+if(current>=images.length){
+current=0;
+}
+
+document
+.getElementById("slide")
+.src=
+images[current];
+
+},3000);
+
+function openImage(src){
+
+document
+.getElementById("imgPopup")
+.style.display="flex";
+
+document
+.getElementById("popupImg")
+.src=src;
+
+}
+
+function closeImage(){
+
+document
+.getElementById("imgPopup")
+.style.display="none";
+
+}
+
+const params =
+new URLSearchParams(
+window.location.search
+);
+
+const guest =
+params.get("guest");
+
+if(guest){
+
+document
+.getElementById("guest")
+.innerHTML=
+"Welcome, "+guest+" ❤️";
+
+}
+
+for(let i=0;i<40;i++){
+
+let s=
+document.createElement("div");
+
+s.className="sparkle";
+
+s.innerHTML="✨";
+
+s.style.left=
+Math.random()*100+"%";
+
+s.style.top=
+Math.random()*100+"%";
+
+s.style.animationDelay=
+Math.random()*5+"s";
+
+document
+.getElementById("sparkles")
+.appendChild(s);
+
+}
+
+for(let i=0;i<30;i++){
+
+let p=
+document.createElement("div");
+
+p.className="petal";
+
+p.innerHTML="🌹";
+
+p.style.left=
+Math.random()*100+"%";
+
+p.style.animationDuration=
+(6+Math.random()*8)+"s";
+
+p.style.animationDelay=
+Math.random()*10+"s";
+
+document
+.getElementById("petals")
+.appendChild(p);
+
+}

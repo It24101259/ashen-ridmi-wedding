@@ -441,60 +441,34 @@ box-shadow:
 50%{
 transform:scale(1.08);
 }
-}
-.contact-box{
-text-align:center;
-margin-top:60px;
+}.contact-box{
+    text-align:center;
+    margin-top:60px;
 }
 
 .contact-box h2{
-color:#FFD700;
-font-size:45px;
-margin-bottom:25px;
+    color:#FFD700;
+    font-size:32px;
+    margin-bottom:20px;
 }
 
 .contact-btn{
-    display:block;
+    display:block !important;
     width:85%;
     max-width:320px;
-    margin:15px auto;
+    margin:15px auto !important;
     padding:16px;
 
     background:linear-gradient(135deg,#FFD700,#FFC300);
 
     color:#000;
-    border-radius:50px;
-
-    font-weight:700;
-    font-size:18px;
-
-    box-shadow:0 0 15px rgba(255,215,0,.4);
+    font-weight:bold;
+    font-size:20px;
 
     text-decoration:none;
-}
-.contact-box{
-text-align:center;
-margin-top:60px;
-}
+    border-radius:50px;
 
-.contact-box h2{
-color:#FFD700;
-font-size:32px;
-margin-bottom:20px;
-}
-
-.contact-btn{
-display:block;
-width:80%;
-max-width:320px;
-margin:12px auto;
-padding:16px;
-background:#FFD700;
-color:#000;
-font-weight:bold;
-font-size:20px;
-text-decoration:none;
-border-radius:50px;
+    box-shadow:0 0 15px rgba(255,215,0,.4);
 }
 .slider img{
     width:100%;

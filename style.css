@@ -48,9 +48,17 @@ body::before {
 }
 
 /* Main container */
-.container {
-    padding: 20px;
-    animation: fadeIn 2s ease-in;
+.container{
+padding:20px;
+animation:fadeIn 2s ease-in;
+
+border:3px solid gold;
+margin:10px;
+border-radius:25px;
+
+box-shadow:
+0 0 15px gold,
+0 0 40px rgba(255,215,0,.3);
 }
 
 @keyframes fadeIn {
@@ -221,12 +229,19 @@ position:relative;
 width:90%;
 max-width:400px;
 padding:60px 30px;
-background:#faf7f0;
 
-border-radius:12px;
+background:linear-gradient(
+145deg,
+rgba(25,25,25,.95),
+rgba(5,5,5,.95)
+);
+
+border:2px solid #d4af37;
+border-radius:30px;
 
 box-shadow:
-0 15px 40px rgba(0,0,0,.5);
+0 0 20px rgba(212,175,55,.5),
+0 0 50px rgba(212,175,55,.25);
 
 color:#111;
 text-align:center;
@@ -486,14 +501,7 @@ height:100%;
 pointer-events:none;
 z-index:999;
 }
-.container{
-border:3px solid gold;
-margin:10px;
-border-radius:25px;
-box-shadow:
-0 0 15px gold,
-0 0 40px rgba(255,215,0,.3);
-}
+
 #guestPopup{
 position:fixed;
 top:50%;

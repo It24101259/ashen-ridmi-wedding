@@ -3,350 +3,361 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Ashen ❤️ Ridmi Wedding Invitation</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: black;
-    color: gold;
-    text-align: center;
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
-/* ================= WELCOME SCREEN ================= */
-#welcomeScreen {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    z-index: 9999;
-    cursor: pointer;
+html{
+scroll-behavior:smooth;
 }
 
-.welcomeContent {
-    animation: float 3s ease-in-out infinite;
+body{
+background:#000;
+font-family:'Poppins',sans-serif;
+color:white;
+overflow-x:hidden;
 }
 
-.welcomeContent h1 {
-    font-family: 'Great Vibes', cursive;
-    font-size: 50px;
-    color: gold;
-    text-shadow: 0 0 20px gold;
-    animation: glow 2s infinite alternate;
+#sparkles{
+position:fixed;
+width:100%;
+height:100%;
+pointer-events:none;
+z-index:1;
 }
 
-.welcomeContent p {
-    color: white;
+.sparkle{
+position:absolute;
+color:gold;
+animation:twinkle 4s linear infinite;
 }
 
-.welcomeContent span {
-    color: gold;
-    display: block;
-    margin-top: 10px;
-    animation: blink 1.5s infinite;
+@keyframes twinkle{
+0%{opacity:0;transform:translateY(0);}
+50%{opacity:1;}
+100%{opacity:0;transform:translateY(-50px);}
 }
 
-/* animations */
-@keyframes glow {
-    from { text-shadow: 0 0 10px gold; }
-    to { text-shadow: 0 0 35px gold; }
+#welcomeScreen{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:
+linear-gradient(
+135deg,
+#000,
+#111,
+#1a1a1a
+);
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:9999;
 }
 
-@keyframes blink {
-    50% { opacity: 0.3; }
+.welcomeContent{
+text-align:center;
+padding:20px;
+animation:float 4s ease-in-out infinite;
 }
 
-@keyframes float {
-    0%,100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+.crown{
+font-size:60px;
+margin-bottom:10px;
 }
 
-.fadeOut {
-    animation: fadeOut 1s forwards;
+.title{
+letter-spacing:4px;
+color:gold;
+font-size:13px;
 }
 
-@keyframes fadeOut {
-    to { opacity: 0; visibility: hidden; }
+.welcomeContent h1{
+font-family:'Great Vibes',cursive;
+font-size:60px;
+color:gold;
+text-shadow:0 0 20px gold;
+margin:10px 0;
 }
 
-/* ================= MAIN ================= */
-.container {
-    padding: 20px;
-    display: none;
+.date,
+.venue{
+color:white;
+margin:8px 0;
 }
 
-.name {
-    font-family: 'Great Vibes', cursive;
-    font-size: 40px;
+.enterBtn{
+display:inline-block;
+margin-top:25px;
+padding:14px 30px;
+background:gold;
+color:black;
+font-weight:bold;
+border-radius:40px;
+cursor:pointer;
+box-shadow:0 0 20px gold;
 }
 
-/* COUNTDOWN */
-#countdown {
-    margin: 10px;
-    color: white;
+@keyframes float{
+50%{
+transform:translateY(-10px);
+}
 }
 
-/* SLIDER */
-.slider {
-    width: 90%;
-    max-width: 360px;
-    margin: 20px auto;
-    border: 2px solid gold;
-    border-radius: 15px;
-    overflow: hidden;
+.fadeOut{
+animation:fadeOut 1s forwards;
 }
 
-.slider img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
+@keyframes fadeOut{
+to{
+opacity:0;
+visibility:hidden;
+}
 }
 
-/* BUTTONS */
-a, button {
-    background: gold;
-    color: black;
-    padding: 10px 18px;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: bold;
-    margin: 8px;
-    border: none;
+.container{
+display:none;
+padding:20px;
+position:relative;
+z-index:5;
 }
 
-/* POPUP */
-#popup {
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: gold;
-    color: black;
-    padding: 10px 20px;
-    border-radius: 20px;
-    display: none;
+.hero{
+padding-top:30px;
 }
+
+.name{
+font-family:'Great Vibes',cursive;
+font-size:55px;
+color:gold;
+text-shadow:0 0 20px gold;
+}
+
+.subtitle{
+line-height:1.9;
+margin-top:15px;
+color:#eee;
+}
+
+.infoCard{
+margin:25px auto;
+padding:18px;
+max-width:500px;
+border:1px solid gold;
+border-radius:20px;
+background:rgba(255,215,0,.08);
+backdrop-filter:blur(10px);
+}
+
+.infoCard p{
+margin:10px 0;
+}
+
+#guest{
+font-size:22px;
+color:gold;
+margin-bottom:15px;
+}
+
+#countdown{
+margin-top:20px;
+font-size:20px;
+font-weight:600;
+color:gold;
+line-height:1.8;
+}
+
+.slider{
+width:95%;
+max-width:420px;
+margin:30px auto;
+overflow:hidden;
+border-radius:25px;
+border:2px solid gold;
+box-shadow:0 0 25px rgba(255,215,0,.4);
+}
+
+.slider img{
+width:100%;
+height:450px;
+object-fit:cover;
+display:block;
+cursor:pointer;
+}
+
+.button{
+display:inline-block;
+padding:14px 25px;
+background:gold;
+color:black;
+text-decoration:none;
+font-weight:700;
+border-radius:40px;
+margin:10px;
+}
+
+iframe{
+margin-top:20px;
+border:2px solid gold;
+border-radius:20px;
+}
+
+.contact-box{
+margin-top:40px;
+padding:20px;
+border:1px solid gold;
+border-radius:20px;
+}
+
+.contact-box h2{
+color:gold;
+margin-bottom:15px;
+}
+
+.contact-btn{
+display:block;
+background:gold;
+color:black;
+padding:12px;
+margin:10px auto;
+max-width:250px;
+border-radius:30px;
+text-decoration:none;
+font-weight:bold;
+}
+
+.footer{
+margin-top:40px;
+color:#999;
+font-size:14px;
+padding-bottom:30px;
+}
+
+#imgPopup{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.95);
+justify-content:center;
+align-items:center;
+z-index:99999;
+}
+
+#imgPopup img{
+width:95%;
+max-width:700px;
+border:3px solid gold;
+border-radius:20px;
+}
+
+#petals{
+position:fixed;
+width:100%;
+height:100%;
+pointer-events:none;
+overflow:hidden;
+z-index:2;
+}
+
+.petal{
+position:absolute;
+font-size:22px;
+animation:fall linear infinite;
+}
+
+@keyframes fall{
+0%{
+transform:translateY(-10vh) rotate(0deg);
+opacity:1;
+}
+100%{
+transform:translateY(110vh) rotate(360deg);
+opacity:.2;
+}
+}
+
+canvas{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+z-index:3;
+}
+
+@media(max-width:600px){
+
+.name{
+font-size:45px;
+}
+
+.welcomeContent h1{
+font-size:48px;
+}
+
+.slider img{
+height:380px;
+}
+
+}
+
 </style>
 </head>
 
 <body>
-    <div id="guestPopup">
-Welcome To Our Wedding ❤️
-</div>
-    <div id="sparkles"></div>
 
-<!-- 💎 WELCOME SCREEN -->
-<div id="welcomeScreen" onclick="enterSite()">
+<div id="sparkles"></div>
+<div id="petals"></div>
+
+<div id="welcomeScreen">
 
 <div class="welcomeContent">
 
-<div class="corner tl">❦</div>
-<div class="corner tr">❦</div>
-
 <div class="crown">👑</div>
 
-<p class="title">
-THE WEDDING OF
-</p>
+<p class="title">THE WEDDING OF</p>
 
 <h1>Ashen ❤️ Ridmi</h1>
 
-<p class="date">
-26 July 2028 • 9:30 AM
-</p>
+<p class="date">26 July 2028 • 9:30 AM</p>
 
-<p class="venue">
-Golden Crown, Kandy
-</p>
+<p class="venue">Golden Crown, Kandy</p>
 
-<div class="enterBtn">
+<div class="enterBtn" onclick="enterSite()">
 Open Invitation ✨
 </div>
-<div class="card">
-
-<h2>❤️ A Promise Forever</h2>
-
-<p>
-Two hearts, one love,
-one lifetime together.
-</p>
-<div class="royal-card">
-
-<h2>💍 Save The Date</h2>
-
-<p>
-We joyfully invite you
-to celebrate our wedding day.
-</p>
-
-</div>
-</div>
 
 </div>
 
 </div>
 
-<!-- MAIN CONTENT -->
 <div class="container" id="main">
+
+<div class="hero">
 
 <p id="guest"></p>
 
+<div class="name">
+Ashen ❤️ Ridmi
+</div>
 
-
-<div class="name">Ashen ❤️ Ridmi</div>
-
-<p style="color:white;line-height:1.8;">
+<p class="subtitle">
 Together With Their Families<br>
 Request The Pleasure Of Your Company<br>
 At Their Wedding Celebration
 </p>
-    <p>📅 26 July 2028 | ⏰ 9:30 AM</p>
-    <p>📍 Golden Crown, Kandy</p>
-
-    <div id="countdown"></div>
-
-    <!-- SLIDER -->
-    <div class="slider">
-        <img id="slide" src="photo1.jpg">
-    </div>
-
-    <!-- BUTTONS -->
-    <a target="_blank" href="https://maps.app.goo.gl/4TyAPM71U2rcCSCC7">📍 Location</a>
-<iframe
-src="https://maps.google.com/maps?q=Golden%20Crown%20Kandy&t=&z=15&ie=UTF8&iwloc=&output=embed"
-width="90%"
-height="250"
-style="border-radius:20px;border:2px solid gold;">
-</iframe>
-    <a target="_blank"
-href="https://forms.gle/9AsxELdHc9a82fHp7">
-💌 RSVP Now
-</a>
-
-    <br><br>
-
-    <button onclick="document.getElementById('music').play()">🎵 Play Music</button>
-
-    <audio id="music" src="music.mp3"></audio>
-<br><br>
-<h3>
-We can't wait to celebrate with you ❤️
-</h3>
-<div class="contact-box">
-
-<h2>📞 Contact Us</h2>
-
-<a class="contact-btn" href="tel:0752090066">
-📱 Call Ashen
-</a>
-
-<a class="contact-btn" href="https://wa.me/94752090066">
-💬 WhatsApp Ashen
-</a>
-
-<a class="contact-btn" href="tel:0751234543">
-📱 Call Ridmi
-</a>
-
-<a class="contact-btn" href="https://wa.me/94751234543">
-💬 WhatsApp Ridmi
-</a>
-
-</div>
-
-
-</div>
-
-
-<div id="popup"></div>
-<br><br>
-
-<p style="
-color:#999;
-font-size:14px;
-margin-bottom:30px;
-">
-
-Made With ❤️ For Our Special Day
-
-<br><br>
-
-Ashen & Ridmi • 2028
-
-</p>
-<script>
-
-
-
-/* ================= ENTER SITE ================= */
-function enterSite(){
-    document.getElementById("welcomeScreen").classList.add("fadeOut");
-
-    setTimeout(()=>{
-        document.getElementById("welcomeScreen").style.display = "none";
-        document.getElementById("main").style.display = "block";
-    },1000);
-}
-
-/* ================= COUNTDOWN ================= */
-const eventDate = new Date("July 26, 2028 09:30:00").getTime();
-
-setInterval(()=>{
-    let now = new Date().getTime();
-    let d = eventDate - now;
-
-    document.getElementById("countdown").innerHTML =
-    Math.floor(d/(1000*60*60*24)) + " Days " +
-    Math.floor((d%(1000*60*60*24))/(1000*60*60)) + " Hours " +
-    Math.floor((d%(1000*60*60))/(1000*60)) + " Min " +
-    Math.floor((d%(1000*60))/1000) + " Sec";
-},1000);
-
-/* ================= SLIDER ================= */
-const images = [
-"photo1.jpg",
-"photo2.jpg",
-"photo3.jpg",
-"photo4.jpg",
-"photo5.jpg"
-];
-
-let i = 0;
-
-setInterval(()=>{
-    i++;
-
-    if(i >= images.length){
-        i = 0;
-    }
-
-    document.getElementById("slide").src = images[i];
-
-},3000);
-
-/* ================= GUEST NAME ================= */
-const params = new URLSearchParams(window.location.search);
-const guest = params.get("guest");
-
-if(guest){
-    document.getElementById("guest").innerHTML =
-    "Welcome, " + guest + " ❤️";
-}
-
-</script>
-<div id="sparkles"></div>
-<canvas id="fireworks"></canvas>
-<div class="rings">💍</div>
-<div id="petals"></div>
-<div id="imgPopup" onclick="this.style.display='none'">
-<img id="popupImg">
-</div>
-</body>
-</html>

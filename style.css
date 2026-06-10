@@ -671,3 +671,66 @@ max-width:90%;
 max-height:90%;
 border-radius:20px;
 }
+.timeline-item{
+margin:15px 0;
+padding:15px;
+
+border-left:3px solid gold;
+
+background:rgba(255,215,0,.05);
+
+border-radius:10px;
+
+color:white;
+}
+.footer{
+
+margin-top:50px;
+
+padding:30px;
+
+border-top:2px solid gold;
+
+color:#999;
+
+font-size:14px;
+}
+.rings{
+
+position:fixed;
+
+bottom:20px;
+left:20px;
+
+font-size:40px;
+
+animation:ringFloat 3s ease-in-out infinite;
+}
+
+@keyframes ringFloat{
+
+0%,100%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-15px);
+}
+}
+.card,
+.royal-card{
+
+opacity:0;
+
+transform:translateY(50px);
+
+transition:1s;
+}
+
+.card.show,
+.royal-card.show{
+
+opacity:1;
+
+transform:translateY(0);
+}

@@ -1,207 +1,6 @@
-slidocument.addEventListener("DOMContentLoaded", function () {
-
-    /* =========================
-       🎞️ PHOTO SLIDER FIX
-    ========================= */
-    let index = 0;
-    const slides = document.querySelectorAll(".slide");
-
-    function showSlides() {
-        if (slides.length === 0) return;
-
-        slides.forEach(s => s.style.display = "none");
-
-        index++;
-        if (index > slides.length) index = 1;
-
-        slides[index - 1].style.display = "block";
-    }
-
-    showSlides();
-    setInterval(showSlides, 3000);
-
-
-    /* =========================
-       ⏳ COUNTDOWN TIMER
-    ========================= */
-    const eventDate = new Date("July 26, 2028 09:30:00").getTime();
-    const countdownEl = document.getElementById("countdown");
-
-    function updateCountdown() {
-        let now = new Date().getTime();
-        let distance = eventDate - now;
-
-        if (distance < 0) {
-            countdownEl.innerHTML = "💍 Happening Now!";
-            return;
-        }
-
-        let days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        let seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        countdownEl.innerHTML =
-            days + " Days " +
-            hours + " Hours " +
-            minutes + " Min " +
-            seconds + " Sec";
-    }
-
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-
-
-    /* =========================
-       💌 GUEST NAME SYSTEM
-    ========================= */
-    const params = new URLSearchParams(window.location.search);
-const guest = params.get("guest");
-
-if(guest){
-    document.getElementById("guest").innerHTML =
-    "👑 Welcome, " + guest + " ❤️";
-}
-
-
-    /* =========================
-       🔔 POPUP MESSAGE
-    ========================= */
-    function showPopup(text) {
-        let popup = document.getElementById("popup");
-        if (!popup) return;
-
-        popup.innerText = text;
-        popup.style.display = "block";
-
-        setTimeout(() => {
-            popup.style.display = "none";
-        }, 3000);
-    }
-
-
-    /* =========================
-       🎵 MUSIC AUTO PLAY FIX
-    ========================= */
-    const music = document.getElementById("music");
-
-    function playMusic() {
-        if (music) {
-            music.play().catch(() => {
-                console.log("Autoplay blocked - user interaction needed");
-            });
-        }
-    }
-
-    // first click anywhere enables music (mobile safe)
-    document.body.addEventListener("click", playMusic, { once: true });
-
-
-    /* =========================
-       🎆 CONFETTI EFFECT
-    ========================= */
-    for (let i = 0; i < 60; i++) {
-        let c = document.createElement("div");
-        c.classList.add("confetti");
-
-        c.style.left = Math.random() * 100 + "vw";
-        c.style.animationDuration = (2 + Math.random() * 3) + "s";
-        c.style.background = Math.random() > 0.5 ? "gold" : "white";
-        c.style.opacity = Math.random();
-
-        document.body.appendChild(c);
-    }
-
-
-    /* =========================
-       🔗 AUTO SHARE LINK (optional)
-    ========================= */
-    console.log("Wedding site loaded successfully 👑");
-
-});
-function enterSite(){
-
-document
-.getElementById("welcomeScreen")
-.classList.add("fadeOut");
-
-for(let i=0;i<30;i++){
-
-let fire =
-document.createElement("div");
-
-fire.innerHTML="🎆";
-
-fire.style.position="fixed";
-fire.style.left=
-Math.random()*100+"vw";
-
-fire.style.top=
-Math.random()*100+"vh";
-
-fire.style.fontSize="30px";
-
-document.body.appendChild(fire);
-
-setTimeout(()=>{
-fire.remove();
-},2000);
-}
-
-setTimeout(()=>{
-document
-.getElementById("welcomeScreen")
-.style.display="none";
-
-document
-.getElementById("main")
-.style.display="block";
-},1000);
-}
-
-setTimeout(()=>{
-
-welcome.style.display="none";
-
-document.getElementById("main")
-.style.display="block";
-
-},1200);
-
-}
-setInterval(()=>{
-
-const star=document.createElement("div");
-
-star.innerHTML="✨";
-
-star.style.position="fixed";
-star.style.left=Math.random()*100+"vw";
-star.style.top="-20px";
-star.style.fontSize="20px";
-star.style.pointerEvents="none";
-star.style.zIndex="1";
-
-document.body.appendChild(star);
-
-let pos=-20;
-
-const fall=setInterval(()=>{
-
-pos+=2;
-
-star.style.top=pos+"px";
-
-if(pos>window.innerHeight){
-
-clearInterval(fall);
-star.remove();
-
-}
-
-},20);
-
-},800);
+/* =========================
+   PHOTO SLIDER
+========================= */
 const images = [
 "photo1.jpg",
 "photo2.jpg",
@@ -210,45 +9,126 @@ const images = [
 "photo5.jpg"
 ];
 
-let i = 0;
+let current = 0;
 
 setInterval(()=>{
 
-const img =
+const slide =
 document.getElementById("slide");
 
-img.style.opacity="0";
+if(!slide) return;
+
+slide.style.opacity="0";
 
 setTimeout(()=>{
 
-i++;
+current++;
 
-if(i>=images.length){
-i=0;
+if(current >= images.length){
+current = 0;
 }
 
-img.src=images[i];
+slide.src = images[current];
 
-img.style.opacity="1";
+slide.style.opacity="1";
 
 },500);
 
 },3500);
+
+
+/* =========================
+   COUNTDOWN
+========================= */
+const eventDate =
+new Date("July 26, 2028 09:30:00").getTime();
+
+setInterval(()=>{
+
+const now =
+new Date().getTime();
+
+const distance =
+eventDate - now;
+
+const days =
+Math.floor(distance/(1000*60*60*24));
+
+const hours =
+Math.floor((distance%(1000*60*60*24))/
+(1000*60*60));
+
+const minutes =
+Math.floor((distance%(1000*60*60))/
+(1000*60));
+
+const seconds =
+Math.floor((distance%(1000*60))/1000);
+
+const countdown =
+document.getElementById("countdown");
+
+if(countdown){
+
+countdown.innerHTML =
+
+days+" Days "+
+hours+" Hours "+
+minutes+" Min "+
+seconds+" Sec";
+
+}
+
+},1000);
+
+
+/* =========================
+   GUEST NAME
+========================= */
+const guest =
+new URLSearchParams(
+window.location.search
+).get("guest");
+
+if(guest){
+
+const guestBox =
+document.getElementById("guest");
+
+if(guestBox){
+
+guestBox.innerHTML =
+"👑 Welcome, "+guest+" ❤️";
+
+}
+
+}
+
+
+/* =========================
+   FIREWORKS
+========================= */
 function showFireworks(){
 
 for(let i=0;i<25;i++){
 
 setTimeout(()=>{
 
-const fw=document.createElement("div");
+const fw =
+document.createElement("div");
 
 fw.innerHTML="✨";
 
 fw.style.position="fixed";
-fw.style.left=Math.random()*100+"vw";
-fw.style.top=Math.random()*60+"vh";
+fw.style.left=
+Math.random()*100+"vw";
+
+fw.style.top=
+Math.random()*60+"vh";
+
 fw.style.fontSize="35px";
-fw.style.zIndex="999";
+
+fw.style.zIndex="9999";
 
 document.body.appendChild(fw);
 
@@ -261,10 +141,24 @@ fw.remove();
 }
 
 }
+
+
+/* =========================
+   GUEST POPUP
+========================= */
 function showGuestPopup(){
 
-const popup=
-document.getElementById("guestPopup");
+const popup =
+document.getElementById(
+"guestPopup"
+);
+
+if(!popup) return;
+
+popup.innerHTML =
+guest
+? "👑 Welcome "+guest+" ❤️"
+: "👑 Welcome To Our Wedding ❤️";
 
 popup.style.display="block";
 
@@ -275,88 +169,91 @@ popup.style.display="none";
 },3000);
 
 }
+
+
+/* =========================
+   ENTER SITE
+========================= */
 function enterSite(){
 
 const welcome =
-document.getElementById("welcomeScreen");
+document.getElementById(
+"welcomeScreen"
+);
 
-welcome.classList.add("openEnvelope");
+welcome.classList.add(
+"openEnvelope"
+);
 
 setTimeout(()=>{
 
 welcome.style.display="none";
-document.getElementById("main").style.display="block";
 
-document.getElementById("music").play();
+document
+.getElementById("main")
+.style.display="block";
+
+const music =
+document.getElementById(
+"music"
+);
+
+if(music){
+
+music.play().catch(()=>{});
+
+}
 
 showFireworks();
+
 showGuestPopup();
 
 },1500);
 
 }
-const cards=document.querySelectorAll(".card");
 
-window.addEventListener("scroll",()=>{
 
-cards.forEach(card=>{
-
-const top=card.getBoundingClientRect().top;
-
-if(top<window.innerHeight-100){
-card.classList.add("show");
-}
-
-});
-
-});
-function showGuestPopup(){
-
-const guest =
-new URLSearchParams(window.location.search)
-.get("guest");
-
-const popup =
-document.getElementById("guestPopup");
-
-popup.innerHTML =
-guest
-? "Welcome " + guest + " ❤️"
-: "Welcome To Our Wedding ❤️";
-
-popup.style.display="block";
-
-setTimeout(()=>{
-popup.style.display="none";
-},3000);
-
-}
+/* =========================
+   ROSE PETALS
+========================= */
 setInterval(()=>{
 
-const petal=document.createElement("div");
+const petal =
+document.createElement("div");
 
 petal.innerHTML="🌹";
 
 petal.style.position="fixed";
-petal.style.left=Math.random()*100+"vw";
+petal.style.left=
+Math.random()*100+"vw";
+
 petal.style.top="-50px";
+
 petal.style.fontSize="24px";
+
 petal.style.zIndex="10";
+
 petal.style.pointerEvents="none";
 
-document.body.appendChild(petal);
+document.body.appendChild(
+petal
+);
 
-let pos=-50;
+let pos = -50;
 
-const fall=setInterval(()=>{
+const fall =
+setInterval(()=>{
 
-pos+=2;
+pos += 2;
 
-petal.style.top=pos+"px";
+petal.style.top =
+pos+"px";
 
-if(pos>window.innerHeight){
+if(pos >
+window.innerHeight){
 
 clearInterval(fall);
+
 petal.remove();
 
 }
@@ -364,87 +261,117 @@ petal.remove();
 },20);
 
 },1200);
-document
-.getElementById("slide")
-.onclick=function(){
 
-document.getElementById("imgPopup")
-.style.display="flex";
 
-document.getElementById("popupImg")
-.src=this.src;
-
-}
-window.onload = function(){
-
-const guest =
-new URLSearchParams(window.location.search)
-.get("guest");
-
-const popup =
-document.getElementById("guestPopup");
-
-popup.innerHTML =
-guest
-? "👑 Welcome " + guest + " ❤️"
-: "👑 Welcome To Our Wedding ❤️";
-
-popup.style.display="block";
-
-setTimeout(()=>{
-popup.style.display="none";
-},3000);
-
-}
+/* =========================
+   SPARKLES
+========================= */
 setInterval(()=>{
 
-const s =
+const star =
 document.createElement("div");
 
-s.className="sparkle";
+star.innerHTML="✨";
 
-s.innerHTML="✨";
+star.style.position="fixed";
 
-s.style.left =
+star.style.left=
 Math.random()*100+"vw";
 
-document.body.appendChild(s);
+star.style.top="-20px";
 
-setTimeout(()=>{
-s.remove();
-},6000);
+star.style.fontSize="18px";
 
-},500);
-document
-.getElementById("slide")
-.onclick = function(){
+star.style.pointerEvents=
+"none";
 
-document
-.getElementById("imgPopup")
-.style.display="flex";
+star.style.zIndex="1";
 
-document
-.getElementById("popupImg")
-.src=this.src;
+document.body.appendChild(
+star
+);
+
+let pos=-20;
+
+const fall=
+setInterval(()=>{
+
+pos+=2;
+
+star.style.top=
+pos+"px";
+
+if(pos>
+window.innerHeight){
+
+clearInterval(fall);
+
+star.remove();
 
 }
+
+},20);
+
+},800);
+
+
+/* =========================
+   IMAGE POPUP
+========================= */
+document.addEventListener(
+"DOMContentLoaded",
+function(){
+
+const slide =
+document.getElementById(
+"slide"
+);
+
+if(slide){
+
+slide.onclick=function(){
+
+document
+.getElementById(
+"imgPopup"
+).style.display="flex";
+
+document
+.getElementById(
+"popupImg"
+).src=this.src;
+
+};
+
+}
+
+});
+
+
+/* =========================
+   CARD ANIMATION
+========================= */
 const cards =
 document.querySelectorAll(
-'.card,.royal-card'
+".card,.royal-card"
 );
 
 window.addEventListener(
-'scroll',
+"scroll",
 ()=>{
 
 cards.forEach(card=>{
 
 const top =
-card.getBoundingClientRect().top;
+card.getBoundingClientRect()
+.top;
 
-if(top < window.innerHeight-100){
+if(top <
+window.innerHeight-100){
 
-card.classList.add('show');
+card.classList.add(
+"show"
+);
 
 }
 
